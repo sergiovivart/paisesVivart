@@ -1,10 +1,10 @@
-creado por Sergio Vivas - Github @https://github.com/sergiovivart - 6/12/2022
-Antes de ejecutar la aplicacion asegurate de hacer lo siguiente
+Creado por Sergio Vivas - Github @https://github.com/sergiovivart - 6/12/2022 con *Symfony 5.4*
+Antes de ejecutar la aplicacion asegurate de hacer lo siguiente.
 
 Instalar las dependencias necesarias via composer
 # composer install
 
-crear la base de datos MySql
+crear la base de datos en MySql
 # app_paises
 
 Edita las credenciales para utilizar la base de datos
@@ -13,7 +13,7 @@ Edita las credenciales para utilizar la base de datos
 Hacer la migracion
 # php bin/console make:migration
 
-Ejecutamos la migracion
+Ejecutar la migracion
 # php bin/console doctrine:migrations:migrate
 
 Lanzamos el servidor
