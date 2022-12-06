@@ -88,13 +88,12 @@
                 <li id="ubicacionDisplay">Ubicacion : {{ paisEncontrado[0].region }} -  {{ paisEncontrado[0].subregion   }}</li>
                 <li id="capitalDisplay"  >Capital   : {{ paisEncontrado[0].capital[0] }}</li>
                 <li id="poblacionDisplay">Poblacion : {{ paisEncontrado[0].population }}</li>
-                 {% for paisLenguaje in paisEncontrado[0].languages %}
-                  <li id="lenguajesDisplay">Lenguajes : {{paisLenguaje }}</li>
-                 {% endfor %}
-                {# <li>Moneda : {{ dump(paisEncontrado[0].currencies) }}</li> #}
+              {% for paisLenguaje in paisEncontrado[0].languages %}
+                <li id="lenguajesDisplay">Lenguajes : {{paisLenguaje }}</li>
+              {% endfor %}
               </ul>
             <p></p>
-            <a id="btnGuardarPais" href="/guardarPais/nombre={{paisEncontrado[0].name.common}}&codigo={{paisEncontrado[0].cca2}}" class="btn btn-outline-dark">Guardar</a>
+            <a id="btnGuardarPais" href="/guardarPais/nombre={{paisEncontrado[0].translations.spa.common}}&codigo={{paisEncontrado[0].cca2}}" class="btn btn-outline-dark">Guardar</a>
           </div>
         </div>
      </div>

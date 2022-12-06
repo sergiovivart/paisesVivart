@@ -1,12 +1,16 @@
+# creado por Sergio Vivas - Github @https://github.com/sergiovivart - 6/12/2022
 # Antes de ejecutar la aplicacion asegurate de hacer lo siguiente
-* Abrimos la carpeta del projecto en un  terminal
-# Instalar las dependencias necesarias via composer.
+
+# Instalar las dependencias necesarias via composer
 composer install
 
-# Edita las credenciales para usar tu base de datos ubicadas en
+# crear la base de datos MySql
+app_paises
+
+# Edita las credenciales para utilizar la base de datos
 /.env
 
-# Hacemos una migracion
+# Hacer la migracion
 php bin/console make:migration
 
 # Ejecutamos la migracion
