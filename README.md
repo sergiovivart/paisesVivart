@@ -10,11 +10,11 @@ crear la base de datos MySql
 Edita las credenciales para utilizar la base de datos
 # /.env
 
-#acer la migracion
+Hacer la migracion
 # php bin/console make:migration
 
-#jecutamos la migracion
+Ejecutamos la migracion
 # php bin/console doctrine:migrations:migrate
 
-#anzamos el servidor
+Lanzamos el servidor
 # symfony server:start
