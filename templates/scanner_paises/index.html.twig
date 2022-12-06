@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+     #contenedor_app {
+      background : #adb5bd1f;
+      height : 630px !important;
+      margin : 10px;
+     }
+    .overFlow {
+      overflow : scroll;
+      height   : 100% !important;
+      margin   : 0;
+      padding  : 0;
+    }
+     h5 {  margin : 10px; }
+</style>
+
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a href="/" class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+          </ul>
+          <button id="buscador" class="btn btn-outline-success" type="submit">Buscar</button>
+          <input  id="paisBuscar" value="Spain"  class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        </div>
+      </div>
+    </nav>
+
+<div id="contenedor_app" class="row">
+
+     <div id="paisesEncontrados" class="col-md-4 overFlow">
+       <h5>Paises Disponibles</h5>
+       <ul class="list-group" >
+        {% for pais in listaPaises %}
+         <li class="list-group-item">
+             <div class="row">
+                <div class="col">
+                    <p> {{ pais.translations.spa.common}}</p>
+                </div>
+                <div class="col">
+                    <img src="{{ pais.flags.png }}" width="76px" height="40px" />
+                </div>
+                <div class="col">
+                    <a href="#" pais_target="{{pais.cca2}}" type="button" class="verPaisBtn btn btn-outline-dark">ver</a> 
+                    <a href="/guardarPais/nombre={{pais.translations.spa.common}}&codigo={{pais.cca2}}" type="button" class="controladorBtn btn btn-outline-dark">guardar</a>
+                </div>
+             </div>
+         </li>
+        {% endfor %}
+       </ul>
+     </div>
+     <!-- paises disponibles -->
+
+     <div class="col-md-3 overFlow">
+        <h5>Paises Guardados</h5>
+         {# {{ dump(paisesGuardados) }} #}
+        <ul class="list-group">
+        {% for pais in paisesGuardados %}
+          <li class="list-group-item">
+          <div class="row">
+            <div class="col">
+              <p>{{ pais.nombre }}<p/>
+            </div>
+            <div class="col">
+              <a href="#" pais_target="{{pais.codigo}}" type="button" class="verPaisBtn btn btn-outline-dark">ver</a>
+              <a href="/removerPais/{{pais.id}}" type="button" class="btn btn-outline-dark">remover</a>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+       </ul>
+     </div>
+     <!-- paises guardados -->
+      
+     <div class="col-md-5 overFlow">
+        {# {{ dump(paisEncontrado) }} #}
+        <div id="presentacionPais" class="card" style="width: 100%;">
+          <img id="imgBandera" src="{{ paisEncontrado[0].flags.png }}" class="card-img-top" alt="..." height="245px" >
+          <div class="card-body">
+            <h5 id="tituloDisplay" class="card-title">{{ paisEncontrado[0].translations.spa.official  }} - ({{ paisEncontrado[0].cca2 }})</h5>
+              <ul id="dataListaDisplay">
+                <li id="ubicacionDisplay">Ubicacion : {{ paisEncontrado[0].region }} -  {{ paisEncontrado[0].subregion   }}</li>
+                <li id="capitalDisplay"  >Capital   : {{ paisEncontrado[0].capital[0] }}</li>
+                <li id="poblacionDisplay">Poblacion : {{ paisEncontrado[0].population }}</li>
+                 {% for paisLenguaje in paisEncontrado[0].languages %}
+                  <li id="lenguajesDisplay">Lenguajes : {{paisLenguaje }}</li>
+                 {% endfor %}
+                {# <li>Moneda : {{ dump(paisEncontrado[0].currencies) }}</li> #}
+              </ul>
+            <p></p>
+            <a id="btnGuardarPais" href="/guardarPais/nombre={{paisEncontrado[0].name.common}}&codigo={{paisEncontrado[0].cca2}}" class="btn btn-outline-dark">Guardar</a>
+          </div>
+        </div>
+     </div>
+      <!-- paises display -->
+      
+</div>
+<!-- fin de la app -->
+
+{% endblock %}
