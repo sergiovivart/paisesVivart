@@ -1,21 +1,16 @@
-# powerShell
-# Antes de ejecutar la aplicacion asegurate de hacer lo siguiente.
-# Entra en la carpeta del projecto con la terminal.
-
-# Instalar las dependencias necesarias via composer con el comando.
+# Antes de ejecutar la aplicacion asegurate de hacer lo siguiente
+* Abrimos la carpeta del projecto en un  terminal
+# Instalar las dependencias necesarias via composer.
 composer install
 
-# Edita las credenciales para usar tu base de dato MySQL en 
+# Edita las credenciales para usar tu base de datos ubicadas en
 /.env
 
-# Hacer las migraciones desde la consolo para hacer la base de datos
-
-
-# Creamos la migracion
+# Hacemos una migracion
 php bin/console make:migration
 
-# Ejecutmaos la migracion
+# Ejecutamos la migracion
 php bin/console doctrine:migrations:migrate
 
-# lanzamos el servidor
+# Lanzamos el servidor
 symfony server:start
