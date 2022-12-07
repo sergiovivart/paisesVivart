@@ -31,7 +31,6 @@ class ScannerPaisesController extends AbstractController
      */
     public function home() { 
          return $this->redirect('/codigoPais=ES');
-        // return new Response('hello');
     } 
     /**
      * @Route("/codigoPais={codigoPaisBuscar}", name="scanner_paises")
