@@ -10,6 +10,10 @@ Edita las credenciales para utilizar la base de datos
 Instalar las dependencias necesarias via composer
 > composer install
 
+Alternativa
+> composer install --ignore-platform-reqs
+
+
 Hacer la migracion
 > php bin/console make:migration
 
